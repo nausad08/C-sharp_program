@@ -59,13 +59,35 @@ namespace ConsoleApp1
             p.Evennum(20);
 
             int ans = add(10, 20);
-            Console.WriteLine("this is ans od add fun"+ans);
+            //Console.WriteLine("this is ans od add fun"+ans);
+            int num = 10;
+            refarancePara(ref num);
+            Console.WriteLine("reafarance val " + num);
+            int t = 0, pr = 0;
+            calculateOut(10, 20, out t, out pr);
+            Console.WriteLine("sum={0} product={1}", t, pr);
+            SendEmail("rachel.appel@jetbrains.com", "maarten.balliauw@jetbrains.com",
+    "khalid.abuhakmeh@jetbrains.com", "matt.ellis@jetbrains.com",
+    "matthias.koch@jetbrains.com", "alexandra.kolesova@jetbrains.com",
+    "sasha.ivanova@jetbrains.com");
 
 
-            
 
+        }
 
+        public static void SendEmail(params string[] emails)
+        {
+            Console.WriteLine("Emails sent to:");
+            foreach (var email in emails)
+            {
+                Console.WriteLine(email);
+            }
+        }
 
+        public static void calculateOut(int fn, int sn,out int sum,out int product)
+        {
+            sum = fn + sn;
+            product = fn * sn;
         }
          void Evennum(int target)
         {
@@ -79,6 +101,10 @@ namespace ConsoleApp1
         public static int add(int x, int y)
         {
             return x + y;
+        }
+        public static void refarancePara(ref int j)
+        {
+            j += 10;
         }
     }
 }
